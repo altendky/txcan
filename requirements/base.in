@@ -1,0 +1,7 @@
+altwistendpy
+attrs
+click
+python-can
+Twisted
+Twisted[osx_platform]; platform_system == "Darwin"
+Twisted[windows_platform]; platform_system == "Windows"
