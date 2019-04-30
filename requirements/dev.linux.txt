@@ -40,9 +40,9 @@ docutils==0.14 \
     # via readme-renderer
 gitignoreio==0.1.5 \
     --hash=sha256:dd0ab3cc32a3e5aa874677735e3d9962b2009b3376efd644be85b2a7f127d66b
-hyperlink==18.0.0 \
-    --hash=sha256:98da4218a56b448c7ec7d2655cb339af1f7d751cf541469bb4fc28c4a4245b34 \
-    --hash=sha256:f01b4ff744f14bc5d0a22a6b9f1525ab7d6312cb0ff967f59414bbac52f0a306 \
+hyperlink==19.0.0 \
+    --hash=sha256:4288e34705da077fada1111a24a0aa08bb1e76699c9ce49876af722441845654 \
+    --hash=sha256:ab4a308feb039b04f855a020a6eda3b18ca5a68e6d8f8c899cbe9e653721d04f \
     # via twisted
 idna==2.8 \
     --hash=sha256:c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407 \
@@ -52,6 +52,9 @@ incremental==17.5.0 \
     --hash=sha256:717e12246dddf231a349175f48d74d93e2897244939173b01974ab6661406b9f \
     --hash=sha256:7b751696aaf36eebfab537e458929e194460051ccad279c72b755a167eebd4b3 \
     # via twisted
+pip-tools==3.6.1 \
+    --hash=sha256:603d374e43bfa02e7a775b58c25a203799155d42f89ef94ee445eb7ae116439f \
+    --hash=sha256:7c52bd17e8b8003a0d8daf5ac6e98c38097223508993fefb440c7e333a09f345
 pkginfo==1.5.0.1 \
     --hash=sha256:7424f2c8511c186cd5424bbf31045b77435b37a8d604990b79d4e70d741148bb \
     --hash=sha256:a6d9e40ca61ad3ebd0b72fbadd4fba16e4c0e4df0428c041e01e06eb6ee71f32 \
@@ -78,11 +81,13 @@ requests-toolbelt==0.9.1 \
 requests==2.21.0 \
     --hash=sha256:502a824f31acdacb3a35b6690b5fbf0bc41d63a24a45c4004352b0242707598e \
     --hash=sha256:7bf2a778576d825600030a110f3c0e3e8edc51dfaafe1c146e39a2027784957b \
-    # via gitignoreio, requests-toolbelt, twine
+    # via gitignoreio, requests-toolbelt, romp, twine
+romp==2019.4.1 \
+    --hash=sha256:1ca42eff5dac16df266e70e8108be05276bd072cbd290cfc6facf6b9c73a1801
 six==1.12.0 \
     --hash=sha256:3350809f0555b11f552448330d0b52d5f24c91a322ea4a15ef22629740f3761c \
     --hash=sha256:d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73 \
-    # via automat, bleach, pyhamcrest, readme-renderer
+    # via automat, bleach, pip-tools, pyhamcrest, readme-renderer
 tqdm==4.31.1 \
     --hash=sha256:d385c95361699e5cf7622485d9b9eae2d4864b21cd5a2374a9c381ffed701021 \
     --hash=sha256:e22977e3ebe961f72362f6ddfb9197cc531c9737aaf5f607ef09740c849ecd05 \
@@ -91,11 +96,12 @@ twine==1.13.0 \
     --hash=sha256:0fb0bfa3df4f62076cab5def36b1a71a2e4acb4d1fa5c97475b048117b1a6446 \
     --hash=sha256:d6c29c933ecfc74e9b1d9fa13aa1f87c5d5770e119f5a4ce032092f0ff5b14dc \
     # via altwistendpy
-twisted==18.9.0 \
-    --hash=sha256:294be2c6bf84ae776df2fc98e7af7d6537e1c5e60a46d33c3ce2a197677da395
-urllib3==1.24.1 \
-    --hash=sha256:61bf29cada3fc2fbefad4fdf059ea4bd1b4a86d2b6d15e1c7c0b582b9752fe39 \
-    --hash=sha256:de9529817c93f27c8ccbfead6985011db27bd0ddfcdb2d86f3f663385c6a9c22 \
+twisted==19.2.0 \
+    --hash=sha256:1708e1928ae84ec9d3ebab0d427e20e1e38ff721b15bbced476d047d4a43abbe \
+    --hash=sha256:3716eca1c80ef88729a85e9a70f09acce8df2adf7c58590d54c94f383945bc47
+urllib3==1.24.2 \
+    --hash=sha256:4c291ca23bbb55c76518905869ef34bdd5f0e46af7afe6861e8375643ffee1a0 \
+    --hash=sha256:9a247273df709c4fedb38c711e44292304f73f39ab01beda9f6b9fc375669ac3 \
     # via requests
 webencodings==0.5.1 \
     --hash=sha256:a0af1213f3c2226497a97e2b3aa01a7e4bee4f403f95be16fc9acd2947514a78 \
@@ -139,3 +145,7 @@ zope.interface==4.6.0 \
     --hash=sha256:eed88ae03e1ef3a75a0e96a55a99d7937ed03e53d0cffc2451c208db445a2966 \
     --hash=sha256:f99451f3a579e73b5dd58b1b08d1179791d49084371d9a47baad3b22417f0317 \
     # via twisted
+
+# The following packages are considered to be unsafe in a requirements file:
+# pip
+# setuptools
