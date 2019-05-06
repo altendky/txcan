@@ -9,7 +9,7 @@ jobs:
     displayName: Generate Matrix
     steps:
       - bash: |
-          python src/matrix.py
+          python azure_matrix.py
         name: generate_matrix
 
   - job: dist
