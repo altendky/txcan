@@ -51,11 +51,21 @@ def inline_callbacks_main(reactor):
 
         logger.debug('starting loop')
 
-        while time.time() - start < 1:
-            message = yield txcan_bus.receive_queue.get()
+        end = start + 2
+
+        while time.time() < end:
+            deferred = txcan_bus.receive_queue.get()
+            deferred.addTimeout(timeout=end - time.time(), clock=reactor)
+            try:
+                message = yield deferred
+            except twisted.internet.defer.TimeoutError:
+                continue
+
             import threading
             logging.debug(
                 'inline_callbacks_main %s %s',
                 threading.get_ident() == threading.main_thread().ident,
                 message,
             )
+        print('#' * 50)
+    print('%' * 50)
