@@ -1,6 +1,5 @@
 --requirement pre.in
 
-altwistendpy
 attrs
 click
 python-can

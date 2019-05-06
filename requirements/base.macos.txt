@@ -4,9 +4,6 @@
 #
 #    python boots.py lock
 #
-altwistendpy==0.0.5 \
-    --hash=sha256:3822dbc9b4c0245dd9f2fe1fd6adb5939599780214e605a6ec509688454eb7a1 \
-    --hash=sha256:a136c1241c5c342d508961949c63cb2c49d9bbe6d3afa9777656f40301e4c332
 appdirs==1.4.3 \
     --hash=sha256:9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92 \
     --hash=sha256:d8b24664561d0d34ddfaec54636d502d7cea6e29c3eaf68f3df6180863e2166e \
@@ -43,10 +40,6 @@ bcrypt==3.1.6 \
     --hash=sha256:de5badee458544ab8125e63e39afeedfcf3aef6a6e2282ac159c95ae7472d773 \
     --hash=sha256:ede2a87333d24f55a4a7338a6ccdccf3eaa9bed081d1737e0db4dbd1a4f7e6b6 \
     # via twisted
-bleach==3.1.0 \
-    --hash=sha256:213336e49e102af26d9cde77dd2d0397afabc5a6bf2fed985dc35b5d1e285a16 \
-    --hash=sha256:3fdf7f77adcf649c9911387df51254b813185e32b2c6619f690b593a617e19fa \
-    # via readme-renderer
 certifi==2019.3.9 \
     --hash=sha256:59b7658e26ca9c7339e00f8f4636cdfe59d34fa37b9b04f6f9e9926b3cece1a5 \
     --hash=sha256:b26104d6835d1f5e49452a26eb2ff87fe7090b89dfcaee5ea2212697e1e1d7ae \
@@ -117,14 +110,6 @@ defusedxml==0.6.0 \
     --hash=sha256:6687150770438374ab581bb7a1b327a847dd9c5749e396102de3fad4e8a3ef93 \
     --hash=sha256:f684034d135af4c6cbb949b8a4d2ed61634515257a67299e5f940fbaa34377f5 \
     # via soappy
-docutils==0.14 \
-    --hash=sha256:02aec4bd92ab067f6ff27a38a38a41173bf01bed8f89157768c1573f53e474a6 \
-    --hash=sha256:51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274 \
-    --hash=sha256:7a4bd47eaf6596e1295ecb11361139febe29b084a87bf005bf899f9a42edc3c6 \
-    # via readme-renderer
-gitignoreio==0.1.5 \
-    --hash=sha256:dd0ab3cc32a3e5aa874677735e3d9962b2009b3376efd644be85b2a7f127d66b \
-    # via altwistendpy
 h2==3.1.0 \
     --hash=sha256:c8f387e0e4878904d4978cd688a3195f6b169d49b1ffa572a3d347d7adc5e09f \
     --hash=sha256:fd07e865a3272ac6ef195d8904de92dc7b38dc28297ec39cfa22716b6d62e6eb \
@@ -156,10 +141,6 @@ pbr==5.2.0 \
 pip-tools==3.6.1 \
     --hash=sha256:603d374e43bfa02e7a775b58c25a203799155d42f89ef94ee445eb7ae116439f \
     --hash=sha256:7c52bd17e8b8003a0d8daf5ac6e98c38097223508993fefb440c7e333a09f345
-pkginfo==1.5.0.1 \
-    --hash=sha256:7424f2c8511c186cd5424bbf31045b77435b37a8d604990b79d4e70d741148bb \
-    --hash=sha256:a6d9e40ca61ad3ebd0b72fbadd4fba16e4c0e4df0428c041e01e06eb6ee71f32 \
-    # via twine
 priority==1.3.0 \
     --hash=sha256:6bc1961a6d7fcacbfc337769f1a382c8e746566aaa365e78047abe9f66b2ffbe \
     --hash=sha256:be4fcb94b5e37cdeb40af5533afe6dd603bd665fe9c8b3052610fc1001d5d1eb \
@@ -175,10 +156,6 @@ pyasn1==0.4.5 \
 pycparser==2.19 \
     --hash=sha256:a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3 \
     # via cffi
-pygments==2.3.1 \
-    --hash=sha256:5ffada19f6203563680669ee7f53b64dabbeb100eb51b61996085e99c03b284a \
-    --hash=sha256:e8218dd399a61674745138520d0d4cf2621d7e032439341bc3f647bff125818d \
-    # via readme-renderer
 pyhamcrest==1.9.0 \
     --hash=sha256:6b672c02fdf7470df9674ab82263841ce8333fb143f32f021f6cb26f0e512420 \
     --hash=sha256:8ffaa0a53da57e89de14ced7185ac746227a8894dbd5a3c718bf05ddbd1d56cd \
@@ -227,18 +204,10 @@ pyserial==3.4 \
 python-can==3.1.1 \
     --hash=sha256:7c57ad72bd1f7d1aca3756a852f5d5bd9926073310ec0ba09f0b3b67b5afe4dd \
     --hash=sha256:99c06d05f8aa6fa9a84f39a11987c303c030411c3280e39bef0b5cd2242ad09f
-readme-renderer==24.0 \
-    --hash=sha256:bb16f55b259f27f75f640acf5e00cf897845a8b3e4731b5c1a436e4b8529202f \
-    --hash=sha256:c8532b79afc0375a85f10433eca157d6b50f7d6990f337fa498c96cd4bfc203d \
-    # via twine
-requests-toolbelt==0.9.1 \
-    --hash=sha256:380606e1d10dc85c3bd47bf5a6095f815ec007be7a8b69c878507068df059e6f \
-    --hash=sha256:968089d4584ad4ad7c171454f0a5c6dac23971e9472521ea3b6d49d610aa6fc0 \
-    # via twine
 requests==2.21.0 \
     --hash=sha256:502a824f31acdacb3a35b6690b5fbf0bc41d63a24a45c4004352b0242707598e \
     --hash=sha256:7bf2a778576d825600030a110f3c0e3e8edc51dfaafe1c146e39a2027784957b \
-    # via gitignoreio, requests-toolbelt, romp, twine
+    # via romp
 romp==2019.4.1 \
     --hash=sha256:1ca42eff5dac16df266e70e8108be05276bd072cbd290cfc6facf6b9c73a1801
 service-identity==18.1.0 \
@@ -248,33 +217,17 @@ service-identity==18.1.0 \
 six==1.12.0 \
     --hash=sha256:3350809f0555b11f552448330d0b52d5f24c91a322ea4a15ef22629740f3761c \
     --hash=sha256:d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73 \
-    # via automat, bcrypt, bleach, cryptography, pip-tools, pyhamcrest, pyopenssl, readme-renderer, wstools
+    # via automat, bcrypt, cryptography, pip-tools, pyhamcrest, pyopenssl, wstools
 soappy==0.12.22 \
     --hash=sha256:e70845906bb625144ae6a8df4534d66d84431ff8e21835d7b401ec6d8eb447a5 \
     # via twisted
-tqdm==4.31.1 \
-    --hash=sha256:d385c95361699e5cf7622485d9b9eae2d4864b21cd5a2374a9c381ffed701021 \
-    --hash=sha256:e22977e3ebe961f72362f6ddfb9197cc531c9737aaf5f607ef09740c849ecd05 \
-    # via twine
-twine==1.13.0 \
-    --hash=sha256:0fb0bfa3df4f62076cab5def36b1a71a2e4acb4d1fa5c97475b048117b1a6446 \
-    --hash=sha256:d6c29c933ecfc74e9b1d9fa13aa1f87c5d5770e119f5a4ce032092f0ff5b14dc \
-    # via altwistendpy
 twisted[osx_platform]==19.2.0 ; platform_system == "Darwin" \
     --hash=sha256:1708e1928ae84ec9d3ebab0d427e20e1e38ff721b15bbced476d047d4a43abbe \
     --hash=sha256:3716eca1c80ef88729a85e9a70f09acce8df2adf7c58590d54c94f383945bc47
-urllib3==1.24.2 \
-    --hash=sha256:4c291ca23bbb55c76518905869ef34bdd5f0e46af7afe6861e8375643ffee1a0 \
-    --hash=sha256:9a247273df709c4fedb38c711e44292304f73f39ab01beda9f6b9fc375669ac3 \
+urllib3==1.24.3 \
+    --hash=sha256:2393a695cd12afedd0dcb26fe5d50d0cf248e5a66f75dbd89a3d4eb333a61af4 \
+    --hash=sha256:a637e5fae88995b256e3409dc4d52c2e2e0ba32c42a6365fee8bbd2238de3cfb \
     # via requests
-webencodings==0.5.1 \
-    --hash=sha256:a0af1213f3c2226497a97e2b3aa01a7e4bee4f403f95be16fc9acd2947514a78 \
-    --hash=sha256:b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923 \
-    # via bleach
-wheel==0.33.1 \
-    --hash=sha256:66a8fd76f28977bb664b098372daef2b27f60dc4d1688cfab7b37a09448f0e9d \
-    --hash=sha256:8eb4a788b3aec8abf5ff68d4165441bc57420c9f64ca5f471f58c3969fe08668 \
-    # via altwistendpy
 wrapt==1.11.1 \
     --hash=sha256:4aea003270831cceb8a90ff27c4031da6ead7ec1886023b80ce0dfe0adf61533 \
     # via python-can

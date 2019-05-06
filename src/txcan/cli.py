@@ -1,6 +1,5 @@
 import logging
 
-import altwistendpy
 import click
 import can
 import twisted.internet.defer
@@ -45,7 +44,7 @@ def inline_callbacks_main(reactor):
     txcan_bus = txcan.Bus.build(bus=can_bus, reactor=reactor)
 
     with txcan_bus.linked():
-        yield altwistendpy.sleep(.2)
+        yield twisted.internet.task.deferLater(reactor, 0.2, lambda: None)
 
         import time
         start = time.time()
