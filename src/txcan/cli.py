@@ -27,7 +27,15 @@ def main():
 
 
 def react_inline_callbacks_helper(reactor, f, args, kwargs):
-    return f(reactor, *args, **kwargs)
+    deferred = f(reactor, *args, **kwargs)
+
+    def cancel():
+        deferred.cancel()
+        return deferred
+
+    reactor.addSystemEventTrigger('before', 'shutdown', cancel)
+
+    return deferred
 
 
 def react_inline_callbacks(f, *args, **kwargs):
@@ -46,16 +54,15 @@ def inline_callbacks_main(reactor):
     with txcan_bus.linked():
         yield twisted.internet.task.deferLater(reactor, 0.2, lambda: None)
 
-        import time
-        start = time.time()
+        start = reactor.seconds()
 
         logger.debug('starting loop')
 
         end = start + 2
 
-        while time.time() < end:
+        while reactor.seconds() < end:
             deferred = txcan_bus.receive_queue.get()
-            deferred.addTimeout(timeout=end - time.time(), clock=reactor)
+            deferred.addTimeout(timeout=end - reactor.seconds(), clock=reactor)
             try:
                 message = yield deferred
             except twisted.internet.defer.TimeoutError:
@@ -67,5 +74,3 @@ def inline_callbacks_main(reactor):
                 threading.get_ident() == threading.main_thread().ident,
                 message,
             )
-        print('#' * 50)
-    print('%' * 50)
