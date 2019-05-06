@@ -46,26 +46,27 @@ jobs:
         inputs:
           versionSpec: $(versionSpec)
           architecture: $(architecture)
-      - task: DownloadBuildArtifacts@0
-        inputs:
-          artifactName: 'dist'
-          downloadPath: $(System.DefaultWorkingDirectory)
-      - bash: |
-          python -c 'import sys; print(sys.version); print(sys.platform)'
-        displayName: Report Python version
-      - bash: |
-          python -m pip install tox pytest-azurepipelines
-        displayName: Install tox
-      - bash: |
-          python -m tox -e ${TOXENV} --installpkg dist/*.whl
-        displayName: tox
-        env:
-           TOXENV: $[ variables.TOXENV ]
-      - bash: |
-          python -m tox -e codecov
-        displayName: codecov
-        env:
-          CODECOV_TOKEN: $(CODECOV_TOKEN)
+# TODO: re-enable once we actually have some tox and tests
+#      - task: DownloadBuildArtifacts@0
+#        inputs:
+#          artifactName: 'dist'
+#          downloadPath: $(System.DefaultWorkingDirectory)
+#      - bash: |
+#          python -c 'import sys; print(sys.version); print(sys.platform)'
+#        displayName: Report Python version
+#      - bash: |
+#          python -m pip install tox pytest-azurepipelines
+#        displayName: Install tox
+#      - bash: |
+#          python -m tox -e ${TOXENV} --installpkg dist/*.whl
+#        displayName: tox
+#        env:
+#           TOXENV: $[ variables.TOXENV ]
+#      - bash: |
+#          python -m tox -e codecov
+#        displayName: codecov
+#        env:
+#          CODECOV_TOKEN: $(CODECOV_TOKEN)
 
   - job: publish
     displayName: Publish

@@ -247,10 +247,6 @@ def main():
         environments=args.environments,
     )
 
-    # TODO: remove this once we have tests to actually run on various
-    #       targets...
-    matrix_entries = {}
-
     json_matrix = json.dumps(matrix_entries)
 
     command = (
