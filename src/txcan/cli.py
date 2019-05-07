@@ -1,4 +1,5 @@
 import logging
+import threading
 
 import click
 import can
@@ -27,7 +28,15 @@ def main():
 
 
 def react_inline_callbacks_helper(reactor, f, args, kwargs):
-    return f(reactor, *args, **kwargs)
+    deferred = f(reactor, *args, **kwargs)
+
+    def cancel():
+        deferred.cancel()
+        return deferred
+
+    reactor.addSystemEventTrigger('before', 'shutdown', cancel)
+
+    return deferred
 
 
 def react_inline_callbacks(f, *args, **kwargs):
@@ -37,6 +46,31 @@ def react_inline_callbacks(f, *args, **kwargs):
     )
 
 
+def sleep(clock, duration):
+    return twisted.internet.task.deferLater(clock, duration, lambda: None)
+
+
+@twisted.internet.defer.inlineCallbacks
+def react_for(duration, clock, deferred):
+    cancelled = [False]
+
+    def cancel():
+        cancelled[0] = True
+        deferred.cancel()
+
+    clock.callLater(duration, cancel)
+
+    result = None
+
+    try:
+        result = yield deferred
+    except twisted.internet.defer.CancelledError:
+        if not cancelled[0]:
+            raise
+
+    return result
+
+
 @twisted.internet.defer.inlineCallbacks
 def inline_callbacks_main(reactor):
     can_bus = can.interface.Bus(bustype='socketcan', channel='can0')
@@ -44,18 +78,24 @@ def inline_callbacks_main(reactor):
     txcan_bus = txcan.Bus.build(bus=can_bus, reactor=reactor)
 
     with txcan_bus.linked():
-        yield twisted.internet.task.deferLater(reactor, 0.2, lambda: None)
-
-        import time
-        start = time.time()
+        yield sleep(clock=reactor, duration=0.2)
 
         logger.debug('starting loop')
 
-        while time.time() - start < 1:
-            message = yield txcan_bus.receive_queue.get()
-            import threading
-            logging.debug(
-                'inline_callbacks_main %s %s',
-                threading.get_ident() == threading.main_thread().ident,
-                message,
-            )
+        yield react_for(
+            duration=2,
+            clock=reactor,
+            deferred=read_messages(txcan_bus=txcan_bus),
+        )
+
+
+@twisted.internet.defer.inlineCallbacks
+def read_messages(txcan_bus):
+    while True:
+        message = yield txcan_bus.receive_queue.get()
+
+        logging.debug(
+            'inline_callbacks_main %s %s',
+            threading.get_ident() == threading.main_thread().ident,
+            message,
+        )
