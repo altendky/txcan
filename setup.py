@@ -6,6 +6,11 @@ with open('README.rst') as f:
     readme = f.read()
 
 
+extras_require_cli = [
+    'click',
+]
+
+
 extras_require_test = [
     'coverage',
     'pytest',
@@ -45,7 +50,7 @@ setuptools.setup(
     ],
     entry_points={
         'console_scripts': [
-            'txcan = txcan.cli:main',
+            'txcan = txcan.cli:main [cli]',
         ],
     },
     python_requires='>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*',
@@ -54,8 +59,10 @@ setuptools.setup(
         'twisted'
     ],
     extras_require={
+        'cli': extras_require_cli,
         'dev': [
             'gitignoreio',
+            *extras_require_cli,
             *extras_require_test,
         ],
         'test': extras_require_test,
