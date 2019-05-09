@@ -80,5 +80,7 @@ class Bus:
             if message is None:
                 logger.debug('send thread received terminate command')
                 return
+            
+            self.bus.send(message)
 
         logger.debug('ending send thread')
