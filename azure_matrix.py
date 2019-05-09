@@ -247,6 +247,9 @@ def main():
         environments=args.environments,
     )
 
+    # TODO: remove this once we are really testing...
+    matrix_entries = dict(matrix_entries.items()[:1])
+
     json_matrix = json.dumps(matrix_entries)
 
     command = (
