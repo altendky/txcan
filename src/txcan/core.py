@@ -36,7 +36,7 @@ class Bus:
     def build(cls, bus, reactor):
         self = cls(bus=bus, reactor=reactor)
         self.listener = Listener(callable=self.receive_in_thread)
-        self.notifier = can.Notifier(bus=bus, listeners=[self.listener])
+        self.notifier = can.Notifier(bus=bus, listeners=[])
         self.send_thread = threading.Thread(target=self.loop_in_send_thread)
 
         return self
