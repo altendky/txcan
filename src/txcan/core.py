@@ -36,7 +36,6 @@ class Bus:
     def build(cls, bus, reactor):
         self = cls(bus=bus, reactor=reactor)
         self.listener = Listener(callable=self.receive_in_thread)
-        self.notifier = can.Notifier(bus=bus, listeners=[])
         self.send_thread = threading.Thread(target=self.loop_in_send_thread)
 
         return self
@@ -51,10 +50,12 @@ class Bus:
             self.loseConnection()
 
     def connect(self):
+        self.notifier = can.Notifier(bus=self.bus, listeners=[])
         self.notifier.add_listener(self.listener)
         self.send_thread.start()
 
     def loseConnection(self):
+        self.notifier.stop()
         self.notifier.remove_listener(self.listener)
         self.send_queue.put(None)
         logger.debug('waiting for send thread to join')
