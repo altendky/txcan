@@ -28,7 +28,7 @@ class Bus:
     notifier = attr.ib(default=None)
     listener = attr.ib(default=None)
     reactor = attr.ib(default=None)
-    receive_queue = attr.ib(factory=twisted.internet.defer.DeferredQueue)
+    receive_queue = attr.ib(default=None)
     send_queue = attr.ib(factory=queue.Queue)
     send_thread = attr.ib(default=None)
 
@@ -49,6 +49,7 @@ class Bus:
             self.loseConnection()
 
     def connect(self):
+        self.receive_queue = twisted.internet.defer.DeferredQueue()
         self.notifier = can.Notifier(bus=self.bus, listeners=[])
         self.notifier.add_listener(self.listener)
         self.send_thread = threading.Thread(target=self.loop_in_send_thread)
@@ -60,6 +61,7 @@ class Bus:
         self.send_queue.put(None)
         logger.debug('waiting for send thread to join')
         self.send_thread.join()
+        self.receive_queue = None
         self.send_thread = None
         logger.debug('send thread joined')
 
