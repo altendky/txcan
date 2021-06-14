@@ -226,9 +226,9 @@ soappy==0.12.22 \
 twisted[osx_platform]==19.2.0 ; platform_system == "Darwin" \
     --hash=sha256:1708e1928ae84ec9d3ebab0d427e20e1e38ff721b15bbced476d047d4a43abbe \
     --hash=sha256:3716eca1c80ef88729a85e9a70f09acce8df2adf7c58590d54c94f383945bc47
-urllib3==1.24.3 \
-    --hash=sha256:2393a695cd12afedd0dcb26fe5d50d0cf248e5a66f75dbd89a3d4eb333a61af4 \
-    --hash=sha256:a637e5fae88995b256e3409dc4d52c2e2e0ba32c42a6365fee8bbd2238de3cfb \
+urllib3==1.26.5 \
+    --hash=sha256:753a0374df26658f99d826cfe40394a686d05985786d946fbe4165b5148f5a7c \
+    --hash=sha256:a7acd0977125325f516bda9735fa7142b909a8d01e8b2e4c8108d0984e6e0098 \
     # via requests
 wrapt==1.11.1 \
     --hash=sha256:4aea003270831cceb8a90ff27c4031da6ead7ec1886023b80ce0dfe0adf61533 \
