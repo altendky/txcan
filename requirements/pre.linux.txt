@@ -39,9 +39,9 @@ urllib3==1.26.5 \
     # via requests
 
 # The following packages are considered to be unsafe in a requirements file:
-pip==19.2 \
-    --hash=sha256:468c67b0b1120cd0329dc72972cf0651310783a922e7609f3102bd5fb4acbf17 \
-    --hash=sha256:aa6fdd80d13caac75d92b5eced06778712859b1606ba92d62389c11be12b2dad
+pip==21.1 \
+    --hash=sha256:ea9f2668484893e90149fd5a6124e04651ffedd67203a8aaf030d31406b937a4 \
+    --hash=sha256:a810bf07c3723a28621c29abe8e34429fa082c337f89aea9a795865416b66d3e
 setuptools==41.0.1 \
     --hash=sha256:a222d126f5471598053c9a77f4b5d4f26eaa1f150ad6e01dcf1a42e185d05613 \
     --hash=sha256:c7769ce668c7a333d84e17fe8b524b1c45e7ee9f7908ad0a73e1eda7e6a5aebf
